@@ -1,32 +1,25 @@
+<div class="container mt-2">
+    <h1>Listagem de Categorias</h1>
+    <hr>
 
-<!-- Conteúdo da página -->
-<div class="container">
-  <h1 class="mt-2">Lista de Categorias</h1>
-  <hr>
-  <table class="table table-hover">
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Ações</th>
-        </tr>
-</thead>
-
-
-<tbody>
-    <?php foreach($categorias as $categoria):?>
-        <tr>
-        <td> <?= $categoria ['nome'] ?></td>
-        <td>
-            <a href== "<?php echo $base_url? .
-             "?c=categoria&m=excluir%id=" .
-             $categoria ['idvategoria']; ?>
-            
-             class="btn btn-danger"> <i class="fa-solid fa-trash-can"></i>Excluir</a>
-            <a href=""class="btn btn-primary"> <i class="fa-solid fa-pencil"></i>Editar</a>
-        </td>
-    
-    </tr>
-    <?php endforeach;?>
-</tbody>
+    <a href="<?= base_url() . "?c=categoria&m=add" ?>" class="btn btn-success">Inserir Categoria</a>
+    <table class="table table-hover table-responsive">
+        <thead>
+            <tr>
+                <th class="col-10">Nome</th>
+                <th>Ações</th>
+            </tr>
+        </thead>        
+        <tbody>
+            <?php foreach($categorias as $categoria):?>
+            <tr>
+                <td> <?= $categoria['nome'] ?></td>
+                <td> 
+                    <a href="<?= base_url() ?>?c=categoria&m=excluir&id=<?= $categoria['idcategoria'] ?>" class="btn btn-danger" title="excluir"> <i class="fa-solid fa-trash-can"></i> </a>
+                    <a href="<?= base_url() ?>?c=categoria&m=editar&id=<?= $categoria['idcategoria'] ?>" class="btn btn-primary" title="editar"> <i class="fa-solid fa-pencil"></i> </a>    
+                </td>
+            </tr>
+            <?php endforeach;?>
+        </tbody>
     </table>
 </div>
